@@ -1,0 +1,214 @@
+[
+  {
+    "id": "texture",
+    "title": "轨道之外 · 纹理回声",
+    "preset": "texture",
+    "layer": "conv_pw_5_relu",
+    "model": "MobileNet V1 · 0.25 · ImageNet",
+    "strength": "中",
+    "stepSize": 0.012,
+    "iterations": 40,
+    "width": 256,
+    "height": 256,
+    "createdAt": "2026-10-09T01:23:56.882Z",
+    "source": "NASA / Eileen Collins · Public domain, via scikit-image",
+    "filename": "astronaut.png",
+    "original": "examples/original.png",
+    "frames": [
+      {
+        "step": 0,
+        "url": "examples/texture-0.png"
+      },
+      {
+        "step": 2,
+        "url": "examples/texture-2.png"
+      },
+      {
+        "step": 4,
+        "url": "examples/texture-4.png"
+      },
+      {
+        "step": 6,
+        "url": "examples/texture-6.png"
+      },
+      {
+        "step": 8,
+        "url": "examples/texture-8.png"
+      },
+      {
+        "step": 10,
+        "url": "examples/texture-10.png"
+      },
+      {
+        "step": 12,
+        "url": "examples/texture-12.png"
+      },
+      {
+        "step": 14,
+        "url": "examples/texture-14.png"
+      },
+      {
+        "step": 16,
+        "url": "examples/texture-16.png"
+      },
+      {
+        "step": 18,
+        "url": "examples/texture-18.png"
+      },
+      {
+        "step": 20,
+        "url": "examples/texture-20.png"
+      },
+      {
+        "step": 22,
+        "url": "examples/texture-22.png"
+      },
+      {
+        "step": 24,
+        "url": "examples/texture-24.png"
+      },
+      {
+        "step": 26,
+        "url": "examples/texture-26.png"
+      },
+      {
+        "step": 28,
+        "url": "examples/texture-28.png"
+      },
+      {
+        "step": 30,
+        "url": "examples/texture-30.png"
+      },
+      {
+        "step": 32,
+        "url": "examples/texture-32.png"
+      },
+      {
+        "step": 34,
+        "url": "examples/texture-34.png"
+      },
+      {
+        "step": 36,
+        "url": "examples/texture-36.png"
+      },
+      {
+        "step": 38,
+        "url": "examples/texture-38.png"
+      },
+      {
+        "step": 40,
+        "url": "examples/texture-40.png"
+      }
+    ],
+    "elapsedMs": 85208,
+    "engine": "TensorFlow.js 4.22.0 / CPU",
+    "objective": "mean activation; gradient normalized by RMS; input clipped to [-1,1]",
+    "crop": false
+  },
+  {
+    "id": "structure",
+    "title": "轨道之外 · 形态漫游",
+    "preset": "structure",
+    "layer": "conv_pw_11_relu",
+    "model": "MobileNet V1 · 0.25 · ImageNet",
+    "strength": "中",
+    "stepSize": 0.012,
+    "iterations": 40,
+    "width": 256,
+    "height": 256,
+    "createdAt": "2026-10-09T01:27:05.570Z",
+    "source": "NASA / Eileen Collins · Public domain, via scikit-image",
+    "filename": "astronaut.png",
+    "original": "examples/original.png",
+    "frames": [
+      {
+        "step": 0,
+        "url": "examples/structure-0.png"
+      },
+      {
+        "step": 2,
+        "url": "examples/structure-2.png"
+      },
+      {
+        "step": 4,
+        "url": "examples/structure-4.png"
+      },
+      {
+        "step": 6,
+        "url": "examples/structure-6.png"
+      },
+      {
+        "step": 8,
+        "url": "examples/structure-8.png"
+      },
+      {
+        "step": 10,
+        "url": "examples/structure-10.png"
+      },
+      {
+        "step": 12,
+        "url": "examples/structure-12.png"
+      },
+      {
+        "step": 14,
+        "url": "examples/structure-14.png"
+      },
+      {
+        "step": 16,
+        "url": "examples/structure-16.png"
+      },
+      {
+        "step": 18,
+        "url": "examples/structure-18.png"
+      },
+      {
+        "step": 20,
+        "url": "examples/structure-20.png"
+      },
+      {
+        "step": 22,
+        "url": "examples/structure-22.png"
+      },
+      {
+        "step": 24,
+        "url": "examples/structure-24.png"
+      },
+      {
+        "step": 26,
+        "url": "examples/structure-26.png"
+      },
+      {
+        "step": 28,
+        "url": "examples/structure-28.png"
+      },
+      {
+        "step": 30,
+        "url": "examples/structure-30.png"
+      },
+      {
+        "step": 32,
+        "url": "examples/structure-32.png"
+      },
+      {
+        "step": 34,
+        "url": "examples/structure-34.png"
+      },
+      {
+        "step": 36,
+        "url": "examples/structure-36.png"
+      },
+      {
+        "step": 38,
+        "url": "examples/structure-38.png"
+      },
+      {
+        "step": 40,
+        "url": "examples/structure-40.png"
+      }
+    ],
+    "elapsedMs": 188685,
+    "engine": "TensorFlow.js 4.22.0 / CPU",
+    "objective": "mean activation; gradient normalized by RMS; input clipped to [-1,1]",
+    "crop": false
+  }
+]
