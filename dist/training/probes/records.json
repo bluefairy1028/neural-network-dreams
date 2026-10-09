@@ -1,0 +1,156 @@
+[
+  {
+    "id": "recorded-base",
+    "titleKey": "legacyTitle",
+    "title": "Recorded base",
+    "modelId": "base",
+    "model": "MobileNet V1 0.25",
+    "checkpointId": "pathmnist-pilot-epoch-0",
+    "checkpointSHA256": "5343fd877a2474147d32dbd86c9adff0255df6f6529b66fb5f2065df8e3065d1",
+    "datasetId": "ImageNet",
+    "layer": "conv_pw_11_relu",
+    "channel": 121,
+    "stepSize": 0.012,
+    "iterations": 20,
+    "requestedIterations": 20,
+    "completedIterations": 20,
+    "width": 128,
+    "height": 128,
+    "originalWidth": 512,
+    "originalHeight": 512,
+    "createdAt": "2026-10-09T02:24:17.129Z",
+    "source": "NASA / Eileen Collins / Public domain",
+    "sourceKey": "demoSource",
+    "filename": "astronaut.png",
+    "inputId": "nasa-independent",
+    "original": "training/probes/input.png",
+    "frames": [
+      {
+        "step": 0,
+        "url": "training/probes/epoch-0-step-0.png"
+      },
+      {
+        "step": 2,
+        "url": "training/probes/epoch-0-step-2.png"
+      },
+      {
+        "step": 4,
+        "url": "training/probes/epoch-0-step-4.png"
+      },
+      {
+        "step": 6,
+        "url": "training/probes/epoch-0-step-6.png"
+      },
+      {
+        "step": 8,
+        "url": "training/probes/epoch-0-step-8.png"
+      },
+      {
+        "step": 10,
+        "url": "training/probes/epoch-0-step-10.png"
+      },
+      {
+        "step": 12,
+        "url": "training/probes/epoch-0-step-12.png"
+      },
+      {
+        "step": 14,
+        "url": "training/probes/epoch-0-step-14.png"
+      },
+      {
+        "step": 16,
+        "url": "training/probes/epoch-0-step-16.png"
+      },
+      {
+        "step": 18,
+        "url": "training/probes/epoch-0-step-18.png"
+      },
+      {
+        "step": 20,
+        "url": "training/probes/epoch-0-step-20.png"
+      }
+    ],
+    "elapsedMs": 22666,
+    "engine": "TensorFlow.js 4.22.0 / CPU",
+    "codeVersion": "prd2-engine-v1",
+    "objective": "selected channel mean activation / RMS-normalized gradient ascent",
+    "crop": false
+  },
+  {
+    "id": "recorded-tissue",
+    "titleKey": "demoTitle",
+    "title": "Recorded tissue",
+    "modelId": "tissue",
+    "model": "MobileNet V1 0.25",
+    "checkpointId": "pathmnist-pilot-epoch-8",
+    "checkpointSHA256": "7916f67a0a35d84ef8ea7414ae5974ee64d422dbe2ad81274a3840c205899a96",
+    "datasetId": "pathmnist-28-subset-seed5316",
+    "layer": "conv_pw_11_relu",
+    "channel": 121,
+    "stepSize": 0.012,
+    "iterations": 20,
+    "requestedIterations": 20,
+    "completedIterations": 20,
+    "width": 128,
+    "height": 128,
+    "originalWidth": 512,
+    "originalHeight": 512,
+    "createdAt": "2026-10-09T02:25:24.025Z",
+    "source": "NASA / Eileen Collins / Public domain",
+    "sourceKey": "demoSource",
+    "filename": "astronaut.png",
+    "inputId": "nasa-independent",
+    "original": "training/probes/input.png",
+    "frames": [
+      {
+        "step": 0,
+        "url": "training/probes/epoch-8-step-0.png"
+      },
+      {
+        "step": 2,
+        "url": "training/probes/epoch-8-step-2.png"
+      },
+      {
+        "step": 4,
+        "url": "training/probes/epoch-8-step-4.png"
+      },
+      {
+        "step": 6,
+        "url": "training/probes/epoch-8-step-6.png"
+      },
+      {
+        "step": 8,
+        "url": "training/probes/epoch-8-step-8.png"
+      },
+      {
+        "step": 10,
+        "url": "training/probes/epoch-8-step-10.png"
+      },
+      {
+        "step": 12,
+        "url": "training/probes/epoch-8-step-12.png"
+      },
+      {
+        "step": 14,
+        "url": "training/probes/epoch-8-step-14.png"
+      },
+      {
+        "step": 16,
+        "url": "training/probes/epoch-8-step-16.png"
+      },
+      {
+        "step": 18,
+        "url": "training/probes/epoch-8-step-18.png"
+      },
+      {
+        "step": 20,
+        "url": "training/probes/epoch-8-step-20.png"
+      }
+    ],
+    "elapsedMs": 22255,
+    "engine": "TensorFlow.js 4.22.0 / CPU",
+    "codeVersion": "prd2-engine-v1",
+    "objective": "selected channel mean activation / RMS-normalized gradient ascent",
+    "crop": false
+  }
+]

@@ -1,52 +1,61 @@
-# Neural Network Dreams · 梦境实验室
+# Neural Network Dreams Lab · PRD 2.0
 
-依据 ../DeepDream_Interactive_PRD.md 实现的可演示交互网站。中文界面，支持课堂模式、两个真实层预设、上传 JPG/PNG、浏览器内真实 DeepDream、迭代回放、作品档案、PNG / JSON / ZIP 导出。
+三个中英双语标签：训练过程、层与通道、创作与生成。所有热图、训练曲线和 Dream 帧均来自真实计算。
 
-## 启动（断网也可用）
+## 启动 / 离线展示
 
-在本目录执行 `npm start`，打开 http://127.0.0.1:8765 。启动不需要安装依赖，Node.js 即可。也可执行 `python3 -m http.server 8765 --bind 127.0.0.1 --directory dist`。不要直接双击 index.html：浏览器的文件协议限制模型与案例读取。
+本目录运行 `npm start`，打开 http://127.0.0.1:8765 。启动仅需 Node.js，无需 npm install。也可用 `python3 -m http.server 8765 --bind 127.0.0.1 --directory dist`。
 
-所有运行资源均在 dist 内，包括模型权重、JS、示例照片、两组真实过程帧。浏览器端不调用第三方生成 API，不上传用户照片。不依赖外部 CDN、字体或 Python 后端。完整离线可用性指在本机启动 HTTP 服务后断开外网，不保证远程 URL 在断网后仍可重新打开。
+模型、脚本、训练记录、检查点及案例均在 dist 中，无外部 CDN。断开外网后本地服务器照常运行；远程网址不承诺断网重载。不要直接双击 index.html。
 
-## 60 秒课堂演示
+## 此次真实训练
 
-1. 点击“课堂模式”，展示默认「形态漫游」案例。
-2. 点击播放，用约 10 秒回放 0–40 次真实迭代。
-3. 点击「纹理回声」，对比同图不同层的效果。
-4. 说明：预训练网络保持固定，反复修改的是输入像素；“梦”是观看的比喻。
-5. 退出课堂模式，打开“来源与方法”展示技术与艺术案例的区别。
+- 数据：PathMNIST / MedMNIST v2 28px；结直肠 H&E 染色组织显微图块，9 类；CC BY 4.0。
+- 数据来源：官方 https://zenodo.org/records/10519652/files/pathmnist.npz?download=1 。MD5 a8b06965200029087d5bd730944a56c1。
+- 从官方 train / val / test 分别按类抽样 100 / 25 / 25 张，共 900 / 225 / 225。种子 5316，索引与校验值保存在 dist/training/dataset.json。不是随机混合后重新划分，测试集未参与训练或调参。
+- MobileNet V1 0.25 ImageNet 初始化；冻结 conv_dw_11_relu 及之前的层，缓存其真实特征，仅微调 conv_pw_11 卷积与新 9 类分类头，BN 冻结。输入 28→64 双线性放大，[-1,1]，无数据增强。
+- Adam 0.001，batch 30，8 epochs，固定已打乱的样本顺序。交叉熵分类目标；初始随机分类头的验证准确率约 11.6%，最终 43.6%；最终保留测试子集 54.2%。详见真实日志，不能当完整器官模型。
+- 检查点 epoch 0 / 2 / 4 / 8，包含可直接用于浏览器特征响应和 Dream 的截断主干，以及 classifier 子目录中的训练尾部（接受缓存特征）。权重 SHA-256 在 run.json。
+- 训练在本机 Apple M3 Max / TensorFlow.js CPU 上执行。运行时间和设备记在日志。
 
-## 实际计算
+这是小规模组织图像局部微调实验，未证明人体结构识别能力或临床效用。第 5 层被冻结，两个版本的该层响应一致是正确结果。第 11 层确有权重和响应变化。新分类头未经训练的 epoch 0 指标不能解释为原始 ImageNet 分类器的组织分类能力。
 
-- TensorFlow.js 4.22.0，MobileNet V1 0.25 / ImageNet 预训练。
-- 纹理回声：conv_pw_5_relu；形态漫游：conv_pw_11_relu。
-- 最大化所选层平均激活；梯度除以自身 RMS；归一化像素截断到 [-1,1]。
-- 强度低 / 中 / 高对应 0.006 / 0.012 / 0.02；20 / 40 / 60 步。
-- 保持原图比例、最长边最多 256 px，不裁剪；透明区域合成在白色背景上。
-- 每 2 步保存 PNG，没有 CSS 滤镜或插值冒充中间结果。
-- 浏览器优先 WebGL，失败回退 CPU。CPU 可能需要数分钟；预计算回放即时可用。
-- 网络图的输入空间维度改为动态，以支持等比例尺寸；预训练权重未修改。
-- 和 PRD 建议架构的差异：使用浏览器 MobileNet 替代 Python + Inception，让静态托管也能真实生成。
+## 交互与数据真实性
 
-## 作品与存储
+- 训练：曲线对应实际日志；拖动 0/2/4/8 检查点，同图同层同通道、相同步长和 20 步优化。检查点、原始 JSON 和权重可下载。
+- 响应：可选两个真实层、全部或任一通道，12 个缩略图。热图是前向计算或注明的真实计算回放；每图独立 min–max 归一化，不能用跨图颜色比较绝对值；显示原始数值范围。
+- 微调层候选 channel 121：在人物、咖啡、猫三个独立图像上筛选空间响应方差总和最高的通道，记录真实生成结果；均匀灰图作为失败观察。只是技术候选，未冒充小组已策展的器官预设。
+- 创作：最长边 256 px、按比例、不裁剪；透明图白底。选模型/层/通道、步长 0.002–0.030、10–60 次迭代；梯度按 RMS 归一化，每 2 步保存真实帧。
+- 生成中改参数：取消并从原图重启，最终记录是新参数快照，无混合续算。语言切换不改变任务、上传、参数或当前帧。
+- 作品包：原图、真实过程帧、最终 PNG、JSON（模型/checkpoint/hash/数据集/层/通道/输入ID/请求与完成步数/代码版本/日期）、数据卡、训练记录和策展文本。
+- 使用当前浏览器 IndexedDB 保留作品，沿用 v1 记录；新模型并不会重写旧结果。内置技术案例备注要导出永久保存。
 
-内置 NASA / Eileen Collins 公共领域照片（via scikit-image），是技术案例，不冒充小组自摄或最终作品。创作档案保存在当前浏览器 IndexedDB 中；清理浏览器数据会删除记录。请下载完整作品 ZIP 长期备份，内含原图、真实帧、最终图和参数备注。浏览器内置示例的备注只保留于本次会话，编辑后需导出。
+## 复现
 
-本工具不代替课程 PDF 提交、两位 hero 的最终选择和分析、Miro 展陈与证据。小组需上传有使用权的照片，完成选择、命名和来源记录。
+先 `npm ci`；Python 需 numpy 与 Pillow（本次使用系统提供的文档运行时）。
 
-## 开发与复现
+1. 将上述官方 pathmnist.npz 放到 training-data/。
+2. `python3 scripts/prepare-data.py`：验证来源文件 MD5，固定划分与索引，导出真实训练样本。
+3. `npm run train`：冻结特征缓存到 training-cache/，训练并保存日志、4 个检查点与分类尾部。
+4. `npm run probes`：构建检查点响应/Dream、多输入候选与灰图失败观察；需 training-data/coffee.png、chelsea.png（scikit-image v0.19.3，CC0）。
+5. `npm run check`：语法、日志、哈希、冻结层一致性、微调层差异、真实帧与双语键。
 
-`npm ci` 后：
-- `npm run check`：校验语法、案例、图片尺寸、模型完整性。
-- `npm run examples`：CPU 重新运行两组真实案例（约数分钟）。
-- `scripts/browser-qa.cjs`：本次环境专用的 Playwright 实测脚本，需预览服务及已有 Chrome；依赖位置按实际环境调整。
+scripts/qa-v2.cjs 是本环境 Chrome / Playwright 的浏览器验收脚本，需按环境修改 Playwright 路径。训练源数据与特征缓存留在本机，不随网站仓库发布。
 
-## 来源 / 许可
+## 与建议架构的差异
 
-实现代码为本项目新编写的梯度上升实现，概念参考 TensorFlow 官方 DeepDream 教程。
+不需要托管长时 Python 服务：训练离线完成后保存检查点，网页使用 TFJS 真实运行固定模型。因此没有伪装的 /api/training 或 Dream 任务 API；浏览器任务状态直接来自实际迭代。现场训练属于 P1，本版未放入界面。
+
+## 仍需小组提供
+
+最终器官主题与数据选择确认、共同选定的视觉预设、拥有使用权的小组照片、最终作品标题与排列、hero 分析、Miro 展陈证据、PDF。网站目前是可运行的组织显微技术实验与创作工具，不冒充这些小组决策。
+
+## 来源与许可证
+
+- PathMNIST：Jiancheng Yang et al., MedMNIST v2 (2023)，CC BY 4.0；原始组织图 Jakob Nikolas Kather et al., NCT-CRC-HE-100K / CRC-VAL-HE-7K (2019)。已标明子集抽样、缩放、微调等改动。
+- NASA Eileen Collins：公共领域；咖啡 Rachel Michetti、猫 Stefan van der Walt：CC0，via scikit-image。
+- TensorFlow.js / MobileNet：Apache 2.0，许可证在 dist/vendor/TENSORFLOW_LICENSE.txt。
 - https://www.tensorflow.org/tutorials/generative/deepdream
 - https://research.google/blog/inceptionism-going-deeper-into-neural-networks/
 - https://memo.tv/projects/2017/learning-to-see-interactive/
-- 照片：https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut （NASA / Public domain）
-- 预训练模型：https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json
-- TensorFlow.js / 模型：Apache 2.0，完整许可证见 dist/vendor/TENSORFLOW_LICENSE.txt。
+- https://scikit-image.org/docs/stable/api/skimage.data.html

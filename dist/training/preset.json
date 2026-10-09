@@ -1,0 +1,83 @@
+{
+  "id": "tissue-association-candidate-v1",
+  "modelId": "tissue",
+  "checkpointId": "pathmnist-pilot-epoch-8",
+  "layer": "conv_pw_11_relu",
+  "channel": 121,
+  "stepSize": 0.012,
+  "iterations": 20,
+  "selectionReason": {
+    "zh": "在 NASA、咖啡与猫三张独立照片上，选取空间响应方差总和最大的通道。已测试真实梯度输出；这是自动筛选的视觉联想候选，尚待小组确认，不是已命名的器官探测器。",
+    "en": "Channel with the highest summed spatial response variance on independent NASA, coffee and cat photographs. Real gradient outputs tested; an automatically screened visual-association candidate pending group curation, not a named organ detector."
+  },
+  "failureObservation": {
+    "zh": "均匀灰色输入也可能产生纹理，说明形态联想不能证明识别出器官。微调验证准确率有限，未证明对日常照片或人体器官的泛化；所见纹理不保证符合预期。",
+    "en": "A uniform gray input may also develop texture, showing that visual association is not evidence of organ recognition. Limited validation accuracy does not establish generalization to everyday photos or human organs; textures may not match expectations."
+  },
+  "tests": [
+    {
+      "input": "nasa",
+      "source": "NASA / Eileen Collins / Public domain",
+      "original": "training/probes/nasa.png",
+      "output": "training/probes/nasa-dream.png",
+      "inputRange": [
+        0,
+        5.990645885467529
+      ],
+      "outputRange": [
+        5.5371527671813965,
+        6
+      ],
+      "pixelRMSDelta": 0.06628553569316864,
+      "isFailureProbe": false
+    },
+    {
+      "input": "coffee",
+      "source": "Rachel Michetti / CC0 / scikit-image",
+      "original": "training/probes/coffee.png",
+      "output": "training/probes/coffee-dream.png",
+      "inputRange": [
+        0,
+        6
+      ],
+      "outputRange": [
+        2.418480396270752,
+        6
+      ],
+      "pixelRMSDelta": 0.07011941075325012,
+      "isFailureProbe": false
+    },
+    {
+      "input": "chelsea",
+      "source": "Stefan van der Walt / CC0 / scikit-image",
+      "original": "training/probes/chelsea.png",
+      "output": "training/probes/chelsea-dream.png",
+      "inputRange": [
+        0,
+        5.6795735359191895
+      ],
+      "outputRange": [
+        3.8983511924743652,
+        6
+      ],
+      "pixelRMSDelta": 0.06732132285833359,
+      "isFailureProbe": false
+    },
+    {
+      "input": "flat",
+      "source": "Programmatically generated constant field (failure probe)",
+      "original": "training/probes/flat.png",
+      "output": "training/probes/flat-dream.png",
+      "inputRange": [
+        0,
+        0.45576485991477966
+      ],
+      "outputRange": [
+        4.006710529327393,
+        6
+      ],
+      "pixelRMSDelta": 0.055556874722242355,
+      "isFailureProbe": true
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "pathmnist-pilot-v1",
+  "codeVersion": "prd2-engine-v1",
+  "datasetId": "pathmnist-28-subset-seed5316",
+  "seed": 5316,
+  "startedAt": "2026-10-09T02:17:36.521Z",
+  "device": "Apple M3 Max / arm64 / TFJS CPU",
+  "architecture": "MobileNet V1 width 0.25",
+  "objective": "9-class tissue classification / categorical cross-entropy",
+  "trainingType": "partial fine-tuning: conv_pw_11 + new dense classifier; all earlier layers and batch normalization frozen",
+  "epochs": 8,
+  "batchSize": 30,
+  "learningRate": 0.001,
+  "inputSize": 64,
+  "shuffle": false,
+  "logs": [
+    {
+      "epoch": 0,
+      "step": 0,
+      "trainLoss": 6.253509044647217,
+      "trainAccuracy": 0.1111111119389534,
+      "valLoss": 6.190732955932617,
+      "valAccuracy": 0.11555555462837219
+    },
+    {
+      "epoch": 1,
+      "step": 30,
+      "trainLoss": 4.121354103088379,
+      "trainAccuracy": 0.1599999964237213,
+      "valLoss": 4.132568836212158,
+      "valAccuracy": 0.14222222566604614,
+      "elapsedMs": 29964
+    },
+    {
+      "epoch": 2,
+      "step": 60,
+      "trainLoss": 4.724879741668701,
+      "trainAccuracy": 0.14777778089046478,
+      "valLoss": 4.764691352844238,
+      "valAccuracy": 0.12888889014720917,
+      "elapsedMs": 29165
+    },
+    {
+      "epoch": 3,
+      "step": 90,
+      "trainLoss": 4.1587677001953125,
+      "trainAccuracy": 0.20222222805023193,
+      "valLoss": 4.231009483337402,
+      "valAccuracy": 0.18666666746139526,
+      "elapsedMs": 28871
+    },
+    {
+      "epoch": 4,
+      "step": 120,
+      "trainLoss": 3.4825682640075684,
+      "trainAccuracy": 0.2755555510520935,
+      "valLoss": 3.587268352508545,
+      "valAccuracy": 0.24888889491558075,
+      "elapsedMs": 27998
+    },
+    {
+      "epoch": 5,
+      "step": 150,
+      "trainLoss": 2.8404300212860107,
+      "trainAccuracy": 0.3400000035762787,
+      "valLoss": 2.972599983215332,
+      "valAccuracy": 0.3377777636051178,
+      "elapsedMs": 27598
+    },
+    {
+      "epoch": 6,
+      "step": 180,
+      "trainLoss": 2.2857139110565186,
+      "trainAccuracy": 0.39222222566604614,
+      "valLoss": 2.4403936862945557,
+      "valAccuracy": 0.36888888478279114,
+      "elapsedMs": 27120
+    },
+    {
+      "epoch": 7,
+      "step": 210,
+      "trainLoss": 1.8276314735412598,
+      "trainAccuracy": 0.43444445729255676,
+      "valLoss": 1.9996612071990967,
+      "valAccuracy": 0.41777777671813965,
+      "elapsedMs": 27127
+    },
+    {
+      "epoch": 8,
+      "step": 240,
+      "trainLoss": 1.4778691530227661,
+      "trainAccuracy": 0.4888888895511627,
+      "valLoss": 1.6597317457199097,
+      "valAccuracy": 0.4355555474758148,
+      "elapsedMs": 27043
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "pathmnist-pilot-epoch-0",
+      "epoch": 0,
+      "url": "training/checkpoints/epoch-0/model.json",
+      "weightsSHA256": "5343fd877a2474147d32dbd86c9adff0255df6f6529b66fb5f2065df8e3065d1",
+      "bytes": 452800
+    },
+    {
+      "id": "pathmnist-pilot-epoch-2",
+      "epoch": 2,
+      "url": "training/checkpoints/epoch-2/model.json",
+      "weightsSHA256": "15d2b3ce43ab1e18c84e9be01e4137d151e0cb678be2f56a716f2867e8082597",
+      "bytes": 452800
+    },
+    {
+      "id": "pathmnist-pilot-epoch-4",
+      "epoch": 4,
+      "url": "training/checkpoints/epoch-4/model.json",
+      "weightsSHA256": "a039dcdeefeae113a799186310c52a41fa988fc1d60cc00058abe5ffc65f7639",
+      "bytes": 452800
+    },
+    {
+      "id": "pathmnist-pilot-epoch-8",
+      "epoch": 8,
+      "url": "training/checkpoints/epoch-8/model.json",
+      "weightsSHA256": "7916f67a0a35d84ef8ea7414ae5974ee64d422dbe2ad81274a3840c205899a96",
+      "bytes": 452800
+    }
+  ],
+  "test": {
+    "loss": 1.4384807348251343,
+    "accuracy": 0.5422222018241882
+  },
+  "completedAt": "2026-10-09T02:21:22.114Z"
+}
