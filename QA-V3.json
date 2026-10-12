@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-12T08:17:43.599Z",
+  "sourceDigest": "7136d58d5a28141c1a22be24bdc595bf90b6d358046992b02d6e4c9e5fb71412",
+  "bilingualPassed": true,
+  "pairedPassed": true,
+  "parameterRestartPassed": true,
+  "exportPassed": true,
+  "mobilePassed": true,
+  "authorInputs": 5,
+  "datasetCredits": 84,
+  "excludedAuthorCredits": 5,
+  "errors": [],
+  "responses": {
+    "base": 1.2818952798843384,
+    "fine": 8.173656463623047
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "createdAt": "2026-10-12T07:55:00.108Z",
+  "method": {
+    "target": "cockroach logit 314",
+    "stepSize": 0.012,
+    "iterations": 20,
+    "frames": "every 2 iterations plus original",
+    "weights": "fixed per run",
+    "paired": "same input and objective; only conv_pw_13 checkpoint changes"
+  },
+  "gallery": [
+    {
+      "id": "author-9103",
+      "input": "experiment/results/author-9103/input.png",
+      "title": [
+        "排水口",
+        "Drain"
+      ],
+      "observation": [
+        "作者输入，未进入任何训练或评估划分。比较数值与生成纹理，不把响应当成排水口有蟑螂的证据。",
+        "Author input outside all training/evaluation splits. Compare values and generated texture; a response does not prove a cockroach in the drain."
+      ],
+      "sourceLabel": [
+        "作者提供并授权课程项目；保留展示图，未参与训练。",
+        "Author supplied and authorized for the course; display-only, never trained."
+      ],
+      "decision": [
+        "个人空间观察，不计入测试准确率",
+        "Personal-space observation, excluded from test accuracy"
+      ],
+      "recordURL": "experiment/results/author-9103/record.json",
+      "baseline": {
+        "before": {
+          "logit": 1.2818952798843384,
+          "score": 0.000036654677387559786
+        },
+        "after": {
+          "logit": 40.148223876953125,
+          "score": 0.9996259212493896
+        },
+        "final": "experiment/results/author-9103/baseline-20.png"
+      },
+      "fineTuned": {
+        "before": {
+          "logit": 8.173656463623047,
+          "score": 0.0183430053293705
+        },
+        "after": {
+          "logit": 49.86882781982422,
+          "score": 0.9999980926513672
+        },
+        "final": "experiment/results/author-9103/fineTuned-20.png"
+      }
+    },
+    {
+      "id": "author-9101",
+      "input": "experiment/results/author-9101/input.png",
+      "title": [
+        "空墙 · 分类误响应",
+        "Empty wall · classification false positive"
+      ],
+      "observation": [
+        "原图未见可确认蟑螂，微调模型的 cockroach 分数为 0.7527，是三组概率中的最大值。这是独立展示输入上的分类误响应；本图不计入 18 张正式测试。",
+        "No identifiable cockroach is visible, but the fine-tuned cockroach score is 0.7527, the largest of the three groups. This is a class false positive on a separate display input, outside the formal 18-image test."
+      ],
+      "sourceLabel": [
+        "作者提供并授权课程项目；保留展示图，未参与训练。",
+        "Author supplied and authorized for the course; display-only, never trained."
+      ],
+      "decision": [
+        "作者保留展示图：可见场景无蟑螂；微调判为蟑螂",
+        "Author display-only input: no visible cockroach; fine-tuned model predicts cockroach"
+      ],
+      "recordURL": "experiment/results/author-9101/record.json",
+      "baseline": {
+        "before": {
+          "logit": 5.117481231689453,
+          "score": 0.0009329520398750901
+        },
+        "after": {
+          "logit": 35.66120529174805,
+          "score": 0.9992223978042603
+        },
+        "final": "experiment/results/author-9101/baseline-20.png"
+      },
+      "fineTuned": {
+        "before": {
+          "logit": 13.411149978637695,
+          "score": 0.7527417540550232
+        },
+        "after": {
+          "logit": 43.86790084838867,
+          "score": 0.9999566078186035
+        },
+        "final": "experiment/results/author-9101/fineTuned-20.png"
+      },
+      "classError": {
+        "type": "false-positive",
+        "model": "fineTuned",
+        "rule": "argmax of three probability groups; score > 0.5 guarantees largest group",
+        "truth": "no visible cockroach at reviewed resolution",
+        "score": 0.7527417540550232,
+        "evaluationRole": "display-only, outside formal held-out test"
+      }
+    },
+    {
+      "id": "author-9102",
+      "input": "experiment/results/author-9102/input.png",
+      "title": [
+        "墙角与不同光线",
+        "Corner and lighting"
+      ],
+      "observation": [
+        "墙角的小点无法可靠定类，本图不作为严格无昆虫真值。光照与纹理差异是观察条件，不是独立因果实验。",
+        "The tiny mark cannot be reliably classified, so this image is not strict insect-free ground truth. Lighting and texture vary together; this is not an isolated causal lighting experiment."
+      ],
+      "sourceLabel": [
+        "作者提供并授权课程项目；保留展示图，未参与训练。",
+        "Author supplied and authorized for the course; display-only, never trained."
+      ],
+      "decision": [
+        "个人空间观察，不计入测试准确率",
+        "Personal-space observation, excluded from test accuracy"
+      ],
+      "recordURL": "experiment/results/author-9102/record.json",
+      "baseline": {
+        "before": {
+          "logit": 2.7654595375061035,
+          "score": 0.0002593819808680564
+        },
+        "after": {
+          "logit": 39.38317108154297,
+          "score": 0.9999704360961914
+        },
+        "final": "experiment/results/author-9102/baseline-20.png"
+      },
+      "fineTuned": {
+        "before": {
+          "logit": 11.430643081665039,
+          "score": 0.5106109976768494
+        },
+        "after": {
+          "logit": 44.996742248535156,
+          "score": 0.9999842643737793
+        },
+        "final": "experiment/results/author-9102/fineTuned-20.png"
+      }
+    },
+    {
+      "id": "author-9105",
+      "input": "experiment/results/author-9105/input.png",
+      "title": [
+        "电线与窗帘",
+        "Cable and curtain"
+      ],
+      "observation": [
+        "电线和褶皱提供线状纹理；增强后出现的形态不等于真实生物结构。",
+        "Cable and folds provide linear texture. Amplified forms are not evidence of real biological structures."
+      ],
+      "sourceLabel": [
+        "作者提供并授权课程项目；保留展示图，未参与训练。",
+        "Author supplied and authorized for the course; display-only, never trained."
+      ],
+      "decision": [
+        "个人空间观察，不计入测试准确率",
+        "Personal-space observation, excluded from test accuracy"
+      ],
+      "recordURL": "experiment/results/author-9105/record.json",
+      "baseline": {
+        "before": {
+          "logit": 1.389926791191101,
+          "score": 0.00006761495023965836
+        },
+        "after": {
+          "logit": 42.998592376708984,
+          "score": 0.9999890327453613
+        },
+        "final": "experiment/results/author-9105/baseline-20.png"
+      },
+      "fineTuned": {
+        "before": {
+          "logit": 8.492890357971191,
+          "score": 0.06954233348369598
+        },
+        "after": {
+          "logit": 50.88060760498047,
+          "score": 1
+        },
+        "final": "experiment/results/author-9105/fineTuned-20.png"
+      }
+    },
+    {
+      "id": "author-9104",
+      "input": "experiment/results/author-9104/input.png",
+      "title": [
+        "厨房水槽与杂物",
+        "Kitchen sink and objects"
+      ],
+      "observation": [
+        "复杂日常空间被作为固定输入；数值变化只说明模型对本图的响应发生变化。",
+        "A complex everyday scene is held fixed; changed values show only changed model responses to this image."
+      ],
+      "sourceLabel": [
+        "作者提供并授权课程项目；保留展示图，未参与训练。",
+        "Author supplied and authorized for the course; display-only, never trained."
+      ],
+      "decision": [
+        "个人空间观察，不计入测试准确率",
+        "Personal-space observation, excluded from test accuracy"
+      ],
+      "recordURL": "experiment/results/author-9104/record.json",
+      "baseline": {
+        "before": {
+          "logit": -0.5163427591323853,
+          "score": 0.000006694408057228429
+        },
+        "after": {
+          "logit": 47.990909576416016,
+          "score": 0.9999946355819702
+        },
+        "final": "experiment/results/author-9104/baseline-20.png"
+      },
+      "fineTuned": {
+        "before": {
+          "logit": 6.654435157775879,
+          "score": 0.003893251297995448
+        },
+        "after": {
+          "logit": 52.10429000854492,
+          "score": 0.9999997615814209
+        },
+        "final": "experiment/results/author-9104/fineTuned-20.png"
+      }
+    },
+    {
+      "id": "inat-photo-366",
+      "input": "experiment/results/inat-photo-366/input.png",
+      "title": [
+        "通道误响应 · 保留测试",
+        "Channel false positive · held-out test"
+      ],
+      "observation": [
+        "通道 22 均值 3.1923，训练集固定阈值 2.1793。这是内部通道的误响应，不是分类误报；下方另列分类判定。Dream 仍统一增强 cockroach logit。",
+        "Channel 22 mean 3.1923, training-set threshold 2.1793. This is an internal-channel false positive, not a classification error. Class decisions are shown separately; Dreams still amplify the cockroach logit."
+      ],
+      "sourceLabel": [
+        "Ken-ichi Ueda · cc-by · 保留测试",
+        "Ken-ichi Ueda · cc-by · held-out test"
+      ],
+      "sourceURL": "https://www.inaturalist.org/observations/345",
+      "truth": "other_insect",
+      "types": {
+        "baseline": "correct",
+        "fineTuned": "correct"
+      },
+      "channelError": {
+        "type": "false-positive",
+        "model": "fineTuned",
+        "layer": "conv_pw_13_relu",
+        "channel": 22,
+        "threshold": 2.1793446620229724,
+        "value": 3.1922740936279297,
+        "baselineValue": 1.4668545722961426
+      },
+      "decision": [
+        "真值 其他昆虫；基础 其他昆虫；微调 空间",
+        "Truth other insect; baseline other insect; fine-tuned space"
+      ],
+      "recordURL": "experiment/results/inat-photo-366/record.json",
+      "baseline": {
+        "before": {
+          "logit": 10.28071403503418,
+          "score": 0.002575203310698271
+        },
+        "after": {
+          "logit": 53.53908157348633,
+          "score": 0.9999994039535522
+        },
+        "final": "experiment/results/inat-photo-366/baseline-20.png"
+      },
+      "fineTuned": {
+        "before": {
+          "logit": 20.910720825195312,
+          "score": 0.29807350039482117
+        },
+        "after": {
+          "logit": 57.52754211425781,
+          "score": 1
+        },
+        "final": "experiment/results/inat-photo-366/fineTuned-20.png"
+      }
+    },
+    {
+      "id": "inat-photo-1847989",
+      "input": "experiment/results/inat-photo-1847989/input.png",
+      "title": [
+        "通道漏响应 · 保留测试",
+        "Channel false negative · held-out test"
+      ],
+      "observation": [
+        "通道 22 均值 1.3203，训练集固定阈值 2.1793。这是内部通道的漏响应，不是分类误报；下方另列分类判定。Dream 仍统一增强 cockroach logit。",
+        "Channel 22 mean 1.3203, training-set threshold 2.1793. This is an internal-channel false negative, not a classification error. Class decisions are shown separately; Dreams still amplify the cockroach logit."
+      ],
+      "sourceLabel": [
+        "no rights reserved · cc0 · 保留测试",
+        "no rights reserved · cc0 · held-out test"
+      ],
+      "sourceURL": "https://www.inaturalist.org/observations/1491183",
+      "truth": "cockroach",
+      "types": {
+        "baseline": "false-negative",
+        "fineTuned": "correct"
+      },
+      "channelError": {
+        "type": "false-negative",
+        "model": "fineTuned",
+        "layer": "conv_pw_13_relu",
+        "channel": 22,
+        "threshold": 2.1793446620229724,
+        "value": 1.3202532529830933,
+        "baselineValue": 0.43782949447631836
+      },
+      "decision": [
+        "真值 蟑螂；基础 空间；微调 蟑螂",
+        "Truth cockroach; baseline space; fine-tuned cockroach"
+      ],
+      "recordURL": "experiment/results/inat-photo-1847989/record.json",
+      "baseline": {
+        "before": {
+          "logit": 7.146013259887695,
+          "score": 0.016821200028061867
+        },
+        "after": {
+          "logit": 51.984439849853516,
+          "score": 0.9999939203262329
+        },
+        "final": "experiment/results/inat-photo-1847989/baseline-20.png"
+      },
+      "fineTuned": {
+        "before": {
+          "logit": 17.204008102416992,
+          "score": 0.8515831828117371
+        },
+        "after": {
+          "logit": 55.96836853027344,
+          "score": 1
+        },
+        "final": "experiment/results/inat-photo-1847989/fineTuned-20.png"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "epoch": 0,
+      "before": {
+        "logit": 1.2818952798843384,
+        "score": 0.000036654677387559786
+      },
+      "after": {
+        "logit": 40.148223876953125,
+        "score": 0.9996259212493896
+      },
+      "final": "experiment/results/checkpoint-0/fineTuned-20.png",
+      "recordURL": "experiment/results/checkpoint-0/record.json"
+    },
+    {
+      "epoch": 4,
+      "before": {
+        "logit": 8.173656463623047,
+        "score": 0.0183430053293705
+      },
+      "after": {
+        "logit": 49.86882781982422,
+        "score": 0.9999980926513672
+      },
+      "final": "experiment/results/checkpoint-4/fineTuned-20.png",
+      "recordURL": "experiment/results/checkpoint-4/record.json"
+    },
+    {
+      "epoch": 8,
+      "before": {
+        "logit": 8.413427352905273,
+        "score": 0.01615852862596512
+      },
+      "after": {
+        "logit": 47.37874221801758,
+        "score": 0.999958872795105
+      },
+      "final": "experiment/results/checkpoint-8/fineTuned-20.png",
+      "recordURL": "experiment/results/checkpoint-8/record.json"
+    },
+    {
+      "epoch": 12,
+      "before": {
+        "logit": 8.763091087341309,
+        "score": 0.01884635165333748
+      },
+      "after": {
+        "logit": 48.30087661743164,
+        "score": 0.9999959468841553
+      },
+      "final": "experiment/results/checkpoint-12/fineTuned-20.png",
+      "recordURL": "experiment/results/checkpoint-12/record.json"
+    }
+  ],
+  "preset": {
+    "channel": 22,
+    "layer": "conv_pw_13_relu",
+    "threshold": 2.1793446620229724,
+    "rule": [
+      "只在训练集中按蟑螂与非蟑螂的标准化均值差选择最大通道；阈值是两组训练均值中点。验证与测试未参与选择。",
+      "Select the channel with the largest standardized cockroach/non-cockroach mean difference on training data only; threshold is the midpoint of training means. Validation and test do not select it."
+    ],
+    "conclusion": [
+      "保留测试正确 12/18；这是有失败的数值候选，不赋予“蟑螂探测器”含义。",
+      "Held-out decisions correct 12/18; this numerical candidate has failures and is not a cockroach detector."
+    ],
+    "examples": [
+      {
+        "id": "inat-photo-1380220",
+        "split": "test",
+        "truth": "cockroach",
+        "value": 4.683112144470215,
+        "correct": true
+      },
+      {
+        "id": "inat-photo-1847989",
+        "split": "test",
+        "truth": "cockroach",
+        "value": 1.3202532529830933,
+        "correct": false
+      }
+    ]
+  }
+}

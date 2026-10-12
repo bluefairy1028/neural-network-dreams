@@ -1,0 +1,630 @@
+{
+  "id": "cockroach-pilot-2026-10-12",
+  "datasetVersion": "cockroach-three-class-v1-2026-10-12",
+  "datasetManifestSHA256": "8eed11372b08cc645d00d22ab42bacb269a6babcd87f58adb60343241728fb84",
+  "seed": 5316,
+  "startedAt": "2026-10-12T07:49:34.711Z",
+  "device": "Apple M3 Max / TFJS CPU",
+  "objective": "Three-group cross entropy: cockroach ImageNet314; other insects ImageNet300–326 excluding314; all remaining classes aggregated as space proxy",
+  "trainingType": "Only conv_pw_13 weights fine-tuned; BN, earlier layers and original ImageNet1000 classification head frozen. No new head, same logit objective for paired Dream.",
+  "learningRate": 0.0003,
+  "batchSize": 8,
+  "inputSize": 96,
+  "epochs": 12,
+  "shuffle": false,
+  "labels": [
+    "cockroach",
+    "other_insect",
+    "empty_space"
+  ],
+  "logs": [
+    {
+      "epoch": 0,
+      "trainLoss": 3.3742945194244385,
+      "trainAccuracy": 0.4791666865348816,
+      "valLoss": 2.2614338397979736,
+      "valAccuracy": 0.5,
+      "elapsedMs": 106
+    },
+    {
+      "epoch": 1,
+      "trainLoss": 0.9257153272628784,
+      "trainAccuracy": 0.6458333730697632,
+      "valLoss": 0.5898418426513672,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5106
+    },
+    {
+      "epoch": 2,
+      "trainLoss": 0.506630003452301,
+      "trainAccuracy": 0.7708333730697632,
+      "valLoss": 0.4411298930644989,
+      "valAccuracy": 0.7222222089767456,
+      "elapsedMs": 5102
+    },
+    {
+      "epoch": 3,
+      "trainLoss": 0.23663605749607086,
+      "trainAccuracy": 0.9166666865348816,
+      "valLoss": 0.515405535697937,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5132
+    },
+    {
+      "epoch": 4,
+      "trainLoss": 0.09894130378961563,
+      "trainAccuracy": 1,
+      "valLoss": 0.5045043230056763,
+      "valAccuracy": 0.8888888955116272,
+      "elapsedMs": 5143
+    },
+    {
+      "epoch": 5,
+      "trainLoss": 0.07253267616033554,
+      "trainAccuracy": 1,
+      "valLoss": 0.5239208936691284,
+      "valAccuracy": 0.8888888955116272,
+      "elapsedMs": 5081
+    },
+    {
+      "epoch": 6,
+      "trainLoss": 0.04491487890481949,
+      "trainAccuracy": 1,
+      "valLoss": 0.5222331285476685,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5110
+    },
+    {
+      "epoch": 7,
+      "trainLoss": 0.03702704235911369,
+      "trainAccuracy": 1,
+      "valLoss": 0.5355188250541687,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5059
+    },
+    {
+      "epoch": 8,
+      "trainLoss": 0.029269767925143242,
+      "trainAccuracy": 1,
+      "valLoss": 0.5341838002204895,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5045
+    },
+    {
+      "epoch": 9,
+      "trainLoss": 0.023748602718114853,
+      "trainAccuracy": 1,
+      "valLoss": 0.5289141535758972,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5040
+    },
+    {
+      "epoch": 10,
+      "trainLoss": 0.02076254040002823,
+      "trainAccuracy": 1,
+      "valLoss": 0.5324013829231262,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5028
+    },
+    {
+      "epoch": 11,
+      "trainLoss": 0.018265819177031517,
+      "trainAccuracy": 1,
+      "valLoss": 0.5420675873756409,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5041
+    },
+    {
+      "epoch": 12,
+      "trainLoss": 0.016294674947857857,
+      "trainAccuracy": 1,
+      "valLoss": 0.5544986724853516,
+      "valAccuracy": 0.8333333134651184,
+      "elapsedMs": 5058
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cockroach-epoch-0",
+      "epoch": 0,
+      "url": "experiment/checkpoints/epoch-0/model.json",
+      "sha256": "48baf731168c0934c603ddc35d11e78bb6503cca23380678fcf3ad795548a413",
+      "bytes": 1902176
+    },
+    {
+      "id": "cockroach-epoch-4",
+      "epoch": 4,
+      "url": "experiment/checkpoints/epoch-4/model.json",
+      "sha256": "be67373d37364eb6aff70cc1644f8471a14434fbfe51e03b35b760bca730f53b",
+      "bytes": 1902176
+    },
+    {
+      "id": "cockroach-epoch-8",
+      "epoch": 8,
+      "url": "experiment/checkpoints/epoch-8/model.json",
+      "sha256": "5471bcf83a7955524bba2effa23201c31536c0816678eae9f6d51e8640ba37ab",
+      "bytes": 1902176
+    },
+    {
+      "id": "cockroach-epoch-12",
+      "epoch": 12,
+      "url": "experiment/checkpoints/epoch-12/model.json",
+      "sha256": "b1098ba9123387150f5e6fa92630110485bfff056acd2741e5535956d956a5af",
+      "bytes": 1902176
+    }
+  ],
+  "test": {
+    "loss": 0.15644875168800354,
+    "accuracy": 0.944444477558136,
+    "predictions": [
+      {
+        "id": "inat-photo-1380220",
+        "truth": "cockroach",
+        "predicted": "cockroach",
+        "probabilities": [
+          0.8699276447296143,
+          0.000772332597989589,
+          0.12930002808570862
+        ],
+        "cockroachScore": 0.8699276447296143,
+        "logit": 24.704607009887695
+      },
+      {
+        "id": "inat-photo-1847989",
+        "truth": "cockroach",
+        "predicted": "cockroach",
+        "probabilities": [
+          0.8515845537185669,
+          0.142105832695961,
+          0.006309613585472107
+        ],
+        "cockroachScore": 0.8515845537185669,
+        "logit": 17.204017639160156
+      },
+      {
+        "id": "inat-photo-1958012",
+        "truth": "cockroach",
+        "predicted": "cockroach",
+        "probabilities": [
+          0.9874693155288696,
+          0.012530164793133736,
+          5.19677996635437e-7
+        ],
+        "cockroachScore": 0.9874693155288696,
+        "logit": 37.87669372558594
+      },
+      {
+        "id": "inat-photo-2022796",
+        "truth": "cockroach",
+        "predicted": "cockroach",
+        "probabilities": [
+          0.9934418201446533,
+          0.005271702539175749,
+          0.0012864773161709309
+        ],
+        "cockroachScore": 0.9934418201446533,
+        "logit": 19.7230224609375
+      },
+      {
+        "id": "inat-photo-2249848",
+        "truth": "cockroach",
+        "predicted": "cockroach",
+        "probabilities": [
+          0.697107195854187,
+          0.08586505055427551,
+          0.21702775359153748
+        ],
+        "cockroachScore": 0.697107195854187,
+        "logit": 12.617900848388672
+      },
+      {
+        "id": "inat-photo-366",
+        "truth": "other_insect",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.29807400703430176,
+          0.2671343684196472,
+          0.434791624546051
+        ],
+        "cockroachScore": 0.29807400703430176,
+        "logit": 20.910730361938477
+      },
+      {
+        "id": "inat-photo-1853",
+        "truth": "other_insect",
+        "predicted": "other_insect",
+        "probabilities": [
+          0.036605607718229294,
+          0.9560705423355103,
+          0.007323861122131348
+        ],
+        "cockroachScore": 0.036605607718229294,
+        "logit": 18.052043914794922
+      },
+      {
+        "id": "inat-photo-3986",
+        "truth": "other_insect",
+        "predicted": "other_insect",
+        "probabilities": [
+          0.006428020540624857,
+          0.9935078024864197,
+          0.0000641942024230957
+        ],
+        "cockroachScore": 0.006428020540624857,
+        "logit": 21.795976638793945
+      },
+      {
+        "id": "inat-photo-6340",
+        "truth": "other_insect",
+        "predicted": "other_insect",
+        "probabilities": [
+          0.15242178738117218,
+          0.7218530774116516,
+          0.1257251501083374
+        ],
+        "cockroachScore": 0.15242178738117218,
+        "logit": 15.209919929504395
+      },
+      {
+        "id": "inat-photo-14038",
+        "truth": "other_insect",
+        "predicted": "other_insect",
+        "probabilities": [
+          0.010159575380384922,
+          0.7831079363822937,
+          0.20673251152038574
+        ],
+        "cockroachScore": 0.010159575380384922,
+        "logit": 21.313566207885742
+      },
+      {
+        "id": "commons-32733873",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.000032431187719339505,
+          2.981277873459476e-7,
+          0.9999672770500183
+        ],
+        "cockroachScore": 0.000032431187719339505,
+        "logit": 9.841266632080078
+      },
+      {
+        "id": "commons-149191498",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.1450165957212448,
+          0.027009006589651108,
+          0.8279743790626526
+        ],
+        "cockroachScore": 0.1450165957212448,
+        "logit": 15.605695724487305
+      },
+      {
+        "id": "commons-140343004",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.0023429945576936007,
+          0.00006441005825763568,
+          0.997592568397522
+        ],
+        "cockroachScore": 0.0023429945576936007,
+        "logit": 10.980661392211914
+      },
+      {
+        "id": "commons-123626886",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.000020771964045707136,
+          0.0000010944035011561937,
+          0.9999781847000122
+        ],
+        "cockroachScore": 0.000020771964045707136,
+        "logit": 8.235318183898926
+      },
+      {
+        "id": "commons-101113323",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.0006514829583466053,
+          0.0000022362926301866537,
+          0.9993462562561035
+        ],
+        "cockroachScore": 0.0006514829583466053,
+        "logit": 9.342329978942871
+      },
+      {
+        "id": "commons-2953437",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.002180376322939992,
+          0.000024610233595012687,
+          0.9977949857711792
+        ],
+        "cockroachScore": 0.002180376322939992,
+        "logit": 11.266406059265137
+      },
+      {
+        "id": "commons-3210111",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.000003621411906351568,
+          0.000002095127229040372,
+          0.9999942779541016
+        ],
+        "cockroachScore": 0.000003621411906351568,
+        "logit": 5.658262252807617
+      },
+      {
+        "id": "commons-123626888",
+        "truth": "empty_space",
+        "predicted": "empty_space",
+        "probabilities": [
+          0.000055634285672567785,
+          0.00005037699156673625,
+          0.9998940229415894
+        ],
+        "cockroachScore": 0.000055634285672567785,
+        "logit": 5.962751388549805
+      }
+    ],
+    "confusion": [
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        1
+      ],
+      [
+        0,
+        0,
+        8
+      ]
+    ]
+  },
+  "limitations": [
+    "Tiny convenience sample; not pest detection validation",
+    "Other-insect examples are beetles only",
+    "Spaces are online photos, not Guangdong author photos",
+    "Rest-of-ImageNet group is a coarse space proxy, not a dedicated empty-space detector",
+    "Author Dream inputs are outside all training/validation/test splits"
+  ],
+  "selectedCheckpoint": {
+    "id": "cockroach-epoch-4",
+    "epoch": 4,
+    "url": "experiment/checkpoints/epoch-4/model.json",
+    "sha256": "be67373d37364eb6aff70cc1644f8471a14434fbfe51e03b35b760bca730f53b",
+    "bytes": 1902176
+  },
+  "selectionRule": "Minimum validation loss among epochs 4, 8, 12; test never used in selection",
+  "validationPredictions": [
+    {
+      "id": "inat-photo-660724",
+      "truth": "cockroach",
+      "predicted": "cockroach",
+      "probabilities": [
+        0.591772198677063,
+        0.40427955985069275,
+        0.003948241472244263
+      ],
+      "cockroachScore": 0.591772198677063,
+      "logit": 25.42293930053711
+    },
+    {
+      "id": "inat-photo-1161888",
+      "truth": "cockroach",
+      "predicted": "cockroach",
+      "probabilities": [
+        0.9937278032302856,
+        0.006263535004109144,
+        0.000008661765605211258
+      ],
+      "cockroachScore": 0.9937278032302856,
+      "logit": 36.89236831665039
+    },
+    {
+      "id": "inat-photo-1729980",
+      "truth": "cockroach",
+      "predicted": "cockroach",
+      "probabilities": [
+        0.8318159580230713,
+        0.1447998583316803,
+        0.023384183645248413
+      ],
+      "cockroachScore": 0.8318159580230713,
+      "logit": 16.448055267333984
+    },
+    {
+      "id": "inat-photo-1870676",
+      "truth": "cockroach",
+      "predicted": "empty_space",
+      "probabilities": [
+        0.2807822525501251,
+        0.04249625280499458,
+        0.6767215132713318
+      ],
+      "cockroachScore": 0.2807822525501251,
+      "logit": 15.172197341918945
+    },
+    {
+      "id": "inat-photo-2391148",
+      "truth": "cockroach",
+      "predicted": "cockroach",
+      "probabilities": [
+        0.9951765537261963,
+        0.004725256934762001,
+        0.0000981893390417099
+      ],
+      "cockroachScore": 0.9951765537261963,
+      "logit": 25.72829246520996
+    },
+    {
+      "id": "inat-photo-587",
+      "truth": "other_insect",
+      "predicted": "other_insect",
+      "probabilities": [
+        0.00005597509880317375,
+        0.5586485266685486,
+        0.4412955045700073
+      ],
+      "cockroachScore": 0.00005597509880317375,
+      "logit": 8.742385864257812
+    },
+    {
+      "id": "inat-photo-8527",
+      "truth": "other_insect",
+      "predicted": "other_insect",
+      "probabilities": [
+        0.3009625971317291,
+        0.5860683917999268,
+        0.1129690408706665
+      ],
+      "cockroachScore": 0.3009625971317291,
+      "logit": 27.094961166381836
+    },
+    {
+      "id": "inat-photo-13207",
+      "truth": "other_insect",
+      "predicted": "other_insect",
+      "probabilities": [
+        0.08887878805398941,
+        0.9111170172691345,
+        0.000004172325134277344
+      ],
+      "cockroachScore": 0.08887878805398941,
+      "logit": 33.61001968383789
+    },
+    {
+      "id": "inat-photo-16035",
+      "truth": "other_insect",
+      "predicted": "cockroach",
+      "probabilities": [
+        0.995092511177063,
+        0.0028699629474431276,
+        0.002037525875493884
+      ],
+      "cockroachScore": 0.995092511177063,
+      "logit": 20.508949279785156
+    },
+    {
+      "id": "inat-photo-17096",
+      "truth": "other_insect",
+      "predicted": "other_insect",
+      "probabilities": [
+        0.012142687104642391,
+        0.9858787655830383,
+        0.001978576183319092
+      ],
+      "cockroachScore": 0.012142687104642391,
+      "logit": 17.165599822998047
+    },
+    {
+      "id": "commons-157378473",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        0.000003894820110872388,
+        0.000007353647561103571,
+        0.9999887943267822
+      ],
+      "cockroachScore": 0.000003894820110872388,
+      "logit": 4.70496940612793
+    },
+    {
+      "id": "commons-141552808",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        0.0003588803519960493,
+        0.0000422494558733888,
+        0.9995988607406616
+      ],
+      "cockroachScore": 0.0003588803519960493,
+      "logit": 15.885812759399414
+    },
+    {
+      "id": "commons-141552807",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        0.005652053281664848,
+        0.000022067124518798664,
+        0.9943258762359619
+      ],
+      "cockroachScore": 0.005652053281664848,
+      "logit": 18.419466018676758
+    },
+    {
+      "id": "commons-134943017",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        0.0007821032777428627,
+        0.006642387714236975,
+        0.992575466632843
+      ],
+      "cockroachScore": 0.0007821032777428627,
+      "logit": 5.189617156982422
+    },
+    {
+      "id": "commons-62334147",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        0.00001081379105016822,
+        0.000002246931671834318,
+        0.9999869465827942
+      ],
+      "cockroachScore": 0.00001081379105016822,
+      "logit": 7.261476516723633
+    },
+    {
+      "id": "commons-74785098",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        0.00011202293535461649,
+        0.0000010940360652966774,
+        0.9998869299888611
+      ],
+      "cockroachScore": 0.00011202293535461649,
+      "logit": 7.6536102294921875
+    },
+    {
+      "id": "commons-111392072",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        2.783806110073783e-7,
+        1.7230252069566632e-7,
+        0.9999995231628418
+      ],
+      "cockroachScore": 2.783806110073783e-7,
+      "logit": 8.019822120666504
+    },
+    {
+      "id": "commons-79773113",
+      "truth": "empty_space",
+      "predicted": "empty_space",
+      "probabilities": [
+        2.133640322199426e-7,
+        1.0000000116860974e-7,
+        0.9999996423721313
+      ],
+      "cockroachScore": 2.133640322199426e-7,
+      "logit": 5.539629936218262
+    }
+  ],
+  "exportConsistencyMaxLogitError": 0.00000762939453125,
+  "completedAt": "2026-10-12T07:51:11.009Z"
+}

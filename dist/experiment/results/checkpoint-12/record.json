@@ -1,0 +1,141 @@
+{
+  "id": "cockroach-e1db6a81-b991-4ebb-b119-ccff06e057a2",
+  "titleKey": "untitled",
+  "experimentVersion": "cockroach-experiment-v1",
+  "datasetVersion": "cockroach-three-class-v1-2026-10-12",
+  "baselineDataset": "ImageNet",
+  "targetClass": "cockroach",
+  "synset": "n02233338",
+  "targetType": "classification-logit",
+  "targetLayer": "conv_preds",
+  "channel": null,
+  "classIndex": 314,
+  "model": "fineTuned",
+  "models": [
+    {
+      "id": "cockroach-epoch-12",
+      "checkpointId": "cockroach-epoch-12",
+      "checkpointSHA256": "b1098ba9123387150f5e6fa92630110485bfff056acd2741e5535956d956a5af"
+    }
+  ],
+  "classificationResponses": {
+    "fineTuned": {
+      "before": {
+        "logit": 8.763091087341309,
+        "score": 0.01884635165333748
+      },
+      "after": {
+        "logit": 48.30087661743164,
+        "score": 0.9999959468841553
+      }
+    }
+  },
+  "paired": false,
+  "input": "experiment/results/checkpoint-12/input.png",
+  "inputInfo": {
+    "id": "56984cfc-10f3-49a5-87ec-e3aa884be476",
+    "filename": "IMG_9103.JPG",
+    "originalWidth": 576,
+    "originalHeight": 768,
+    "width": 192,
+    "height": 256,
+    "sourceFileSHA256": "20b2e14c173978acaea67f1e801ba3395a92b63695bbff412751fd23e4b7a7ad",
+    "processedSHA256": "a1fbed9067a01d690de6e7d2582a9015a0e92df4dabba6e821ce539f6d25194b",
+    "photographer": "作品作者（用户提供）",
+    "rights": "作者提供并授权用于本课程项目",
+    "role": "dream-and-demonstration-only",
+    "selfShotStatus": "provided by project author; authorized in conversation 2026-10-12",
+    "authorId": "author-9103",
+    "photographerBilingual": [
+      "作品作者（用户提供）",
+      "Project author (user supplied)"
+    ],
+    "rightsBilingual": [
+      "作者提供并授权用于本课程项目",
+      "Supplied and authorized by the author for this course project"
+    ],
+    "displayDerivativeSHA256": "6807ad3d3fe0d987e2cd2fec41d14626e8cf5d2d2a80a3a660c2dba60ec56b75",
+    "sourceOriginalDimensions": [
+      3024,
+      4032
+    ]
+  },
+  "stepSize": 0.012,
+  "requestedIterations": 20,
+  "completedIterations": 20,
+  "frames": {
+    "baseline": [],
+    "fineTuned": [
+      {
+        "step": 0,
+        "url": "experiment/results/checkpoint-12/fineTuned-0.png",
+        "sha256": "a1fbed9067a01d690de6e7d2582a9015a0e92df4dabba6e821ce539f6d25194b"
+      },
+      {
+        "step": 2,
+        "url": "experiment/results/checkpoint-12/fineTuned-2.png",
+        "sha256": "6eeff9f4e9bef26c83a558daf2a5ec784cae5a640469bd853b568a631626dbd1"
+      },
+      {
+        "step": 4,
+        "url": "experiment/results/checkpoint-12/fineTuned-4.png",
+        "sha256": "3c1ceba2b816fec6ea0c09e7d4ac98d74f7eb30ed668a1118a82f6abc0e6fa25"
+      },
+      {
+        "step": 6,
+        "url": "experiment/results/checkpoint-12/fineTuned-6.png",
+        "sha256": "e7e235660547d44e529f400e6216aec9edab0737232d98ef4718a6d5caee45ad"
+      },
+      {
+        "step": 8,
+        "url": "experiment/results/checkpoint-12/fineTuned-8.png",
+        "sha256": "a8da2b799dc9fe91379cbb673c2d6ec6c5371193554064d827d6895b111be9c4"
+      },
+      {
+        "step": 10,
+        "url": "experiment/results/checkpoint-12/fineTuned-10.png",
+        "sha256": "3f6fe336d9e08789f3e229062e1693c41813452976f7c19490015bcc0766abc0"
+      },
+      {
+        "step": 12,
+        "url": "experiment/results/checkpoint-12/fineTuned-12.png",
+        "sha256": "195485302b988b1c97b8ce74d94a26d3e98941fe0879100ccfe245722252fe6b"
+      },
+      {
+        "step": 14,
+        "url": "experiment/results/checkpoint-12/fineTuned-14.png",
+        "sha256": "6df08aa17cfbc569abf0c20a5f67c2619adf537520f02bf9bca02a03b434e037"
+      },
+      {
+        "step": 16,
+        "url": "experiment/results/checkpoint-12/fineTuned-16.png",
+        "sha256": "c39aaca3e1b29da9d98d00ae16722f11f312dd743425eee0532e0c0038230ccb"
+      },
+      {
+        "step": 18,
+        "url": "experiment/results/checkpoint-12/fineTuned-18.png",
+        "sha256": "8e3c09fb0455e9526ee38c1692556223811078478ce4d8ef1e871e937f3d3848"
+      },
+      {
+        "step": 20,
+        "url": "experiment/results/checkpoint-12/fineTuned-20.png",
+        "sha256": "7f45ec54cc7780c529f6b421e1dfc4369b04eaad727b497f5043ba8fcf9f0c7f"
+      }
+    ]
+  },
+  "createdAt": "2026-10-12T07:55:35.938Z",
+  "elapsedMs": 983,
+  "codeVersion": "scientist-cockroach-v3",
+  "personalNarrative": {
+    "zh": "本项目把作者在广东生活中形成的蟑螂恐惧转化为一个机器视觉实验。它不代表所有广东居民的经验，也不说明广东客观上属于蟑螂。",
+    "en": "This project translates the author’s fear of cockroaches developed through living in Guangdong into a machine-vision experiment. It does not represent every Guangdong resident or define Guangdong by cockroaches."
+  },
+  "interpretationBoundary": {
+    "zh": "模型没有恐惧、情绪或主观体验。",
+    "en": "The model has no fear, emotions or subjective experience."
+  },
+  "method": "RMS-normalized gradient ascent on input; model weights fixed; save every 2 steps; no interpolation",
+  "backend": "webgl",
+  "status": "completed",
+  "recordURL": "experiment/results/checkpoint-12/record.json"
+}

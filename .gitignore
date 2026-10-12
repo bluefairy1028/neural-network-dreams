@@ -4,3 +4,10 @@ node_modules/
 .openai/local/
 training-data/
 training-cache/
+audit/**/training-data/
+audit/**/training-cache/
+data/cockroach-candidates/images/
+data/experiment-v1/pixels.bin
+data/space-candidates/images/
+data/space-candidates/contact-sheets/
+data/diagnostics/

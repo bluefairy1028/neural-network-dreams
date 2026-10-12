@@ -1,0 +1,144 @@
+{
+  "version": "cockroach-experiment-v1",
+  "status": "validated",
+  "baseline": {
+    "id": "imagenet-mobilenet-v1-025",
+    "url": "model/model.json",
+    "checkpointId": "imagenet-original",
+    "sha256": "eb49857447f6089e7e392f7991f3f4fdce1936efaf83d535f5eb8aaba9538e0b",
+    "classIndex": 314,
+    "className": "cockroach",
+    "synset": "n02233338",
+    "logitLayer": "conv_preds",
+    "featureLayer": "conv_pw_13_relu",
+    "comparisonSignature": "mobilenet-v1-025-imagenet1000-cockroach314-v1"
+  },
+  "fineTuned": {
+    "id": "mobilenet-v1-025-cockroach-conv13",
+    "url": "experiment/checkpoints/epoch-4/model.json",
+    "checkpointId": "cockroach-epoch-4",
+    "sha256": "be67373d37364eb6aff70cc1644f8471a14434fbfe51e03b35b760bca730f53b",
+    "classIndex": 314,
+    "className": "cockroach",
+    "synset": "n02233338",
+    "logitLayer": "conv_preds",
+    "featureLayer": "conv_pw_13_relu",
+    "comparisonSignature": "mobilenet-v1-025-imagenet1000-cockroach314-v1"
+  },
+  "training": {
+    "url": "experiment/run.json",
+    "checkpoints": [
+      {
+        "id": "cockroach-epoch-0",
+        "epoch": 0,
+        "url": "experiment/checkpoints/epoch-0/model.json",
+        "sha256": "48baf731168c0934c603ddc35d11e78bb6503cca23380678fcf3ad795548a413",
+        "bytes": 1902176
+      },
+      {
+        "id": "cockroach-epoch-4",
+        "epoch": 4,
+        "url": "experiment/checkpoints/epoch-4/model.json",
+        "sha256": "be67373d37364eb6aff70cc1644f8471a14434fbfe51e03b35b760bca730f53b",
+        "bytes": 1902176
+      },
+      {
+        "id": "cockroach-epoch-8",
+        "epoch": 8,
+        "url": "experiment/checkpoints/epoch-8/model.json",
+        "sha256": "5471bcf83a7955524bba2effa23201c31536c0816678eae9f6d51e8640ba37ab",
+        "bytes": 1902176
+      },
+      {
+        "id": "cockroach-epoch-12",
+        "epoch": 12,
+        "url": "experiment/checkpoints/epoch-12/model.json",
+        "sha256": "b1098ba9123387150f5e6fa92630110485bfff056acd2741e5535956d956a5af",
+        "bytes": 1902176
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "author-9103",
+      "recordURL": "experiment/results/author-9103/record.json"
+    },
+    {
+      "id": "author-9101",
+      "recordURL": "experiment/results/author-9101/record.json"
+    },
+    {
+      "id": "author-9102",
+      "recordURL": "experiment/results/author-9102/record.json"
+    },
+    {
+      "id": "author-9105",
+      "recordURL": "experiment/results/author-9105/record.json"
+    },
+    {
+      "id": "author-9104",
+      "recordURL": "experiment/results/author-9104/record.json"
+    },
+    {
+      "id": "inat-photo-366",
+      "recordURL": "experiment/results/inat-photo-366/record.json"
+    },
+    {
+      "id": "inat-photo-1847989",
+      "recordURL": "experiment/results/inat-photo-1847989/record.json"
+    }
+  ],
+  "failures": [
+    {
+      "id": "author-9101",
+      "classError": {
+        "type": "false-positive",
+        "model": "fineTuned",
+        "rule": "argmax of three probability groups; score > 0.5 guarantees largest group",
+        "truth": "no visible cockroach at reviewed resolution",
+        "score": 0.7527417540550232,
+        "evaluationRole": "display-only, outside formal held-out test"
+      }
+    },
+    {
+      "id": "inat-photo-366",
+      "channelError": {
+        "type": "false-positive",
+        "model": "fineTuned",
+        "layer": "conv_pw_13_relu",
+        "channel": 22,
+        "threshold": 2.1793446620229724,
+        "value": 3.1922740936279297,
+        "baselineValue": 1.4668545722961426
+      }
+    },
+    {
+      "id": "inat-photo-1847989",
+      "channelError": {
+        "type": "false-negative",
+        "model": "fineTuned",
+        "layer": "conv_pw_13_relu",
+        "channel": 22,
+        "threshold": 2.1793446620229724,
+        "value": 1.3202532529830933,
+        "baselineValue": 0.43782949447631836
+      }
+    }
+  ],
+  "validatedPresets": [
+    {
+      "layer": "conv_pw_13_relu",
+      "channel": 22,
+      "evidence": "experiment/evidence.json",
+      "scope": "Numerical candidate with documented held-out failures; not a semantic detector"
+    }
+  ],
+  "publicationReady": true,
+  "datasetVersion": "cockroach-three-class-v1-2026-10-12",
+  "releaseAudit": {
+    "bilingualPassed": true,
+    "qa": "QA-V3.json",
+    "gates": "scripts/release-gate.cjs",
+    "note": "Channel errors are explicit; author empty-wall class false positive is outside formal test."
+  }
+}

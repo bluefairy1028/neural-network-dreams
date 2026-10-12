@@ -1,61 +1,40 @@
-# Neural Network Dreams Lab · PRD 2.0
+# Neural Network Dreams：从特征可视化到机器之梦
 
-三个中英双语标签：训练过程、层与通道、创作与生成。所有热图、训练曲线和 Dream 帧均来自真实计算。
+Scientist → DeepDream 机制 → 蟑螂恐惧实验 → 科学分析。2026-10-12 实验版。
 
-## 启动 / 离线展示
+网站入口：https://neural-network-dreams-lab.bluefairy1028.chatgpt.site （保留原有私有访问设置；发布状态以 Sites 工具返回为准）。
 
-本目录运行 `npm start`，打开 http://127.0.0.1:8765 。启动仅需 Node.js，无需 npm install。也可用 `python3 -m http.server 8765 --bind 127.0.0.1 --directory dist`。
+## 演示
 
-模型、脚本、训练记录、检查点及案例均在 dist 中，无外部 CDN。断开外网后本地服务器照常运行；远程网址不承诺断网重载。不要直接双击 index.html。
+点击「导览演示」按五步讲解。案例内可以切换训练、响应、生成。内置排水口、瓷砖、墙角、空调电线、厨房水槽五张作者照片；全部排除于训练、验证、正式测试之外。
 
-## 此次真实训练
+「回放该照片的真实对照」读取已保存计算帧；「同参数运行双模型」在浏览器重新执行真实梯度上升。成对运行时参数锁定；单次运行改变参数会取消并从原图重启。语言切换不重置输入或任务。PNG、JSON 与 ZIP 导出包含模型哈希、目标、来源、个人叙事和真实帧。
 
-- 数据：PathMNIST / MedMNIST v2 28px；结直肠 H&E 染色组织显微图块，9 类；CC BY 4.0。
-- 数据来源：官方 https://zenodo.org/records/10519652/files/pathmnist.npz?download=1 。MD5 a8b06965200029087d5bd730944a56c1。
-- 从官方 train / val / test 分别按类抽样 100 / 25 / 25 张，共 900 / 225 / 225。种子 5316，索引与校验值保存在 dist/training/dataset.json。不是随机混合后重新划分，测试集未参与训练或调参。
-- MobileNet V1 0.25 ImageNet 初始化；冻结 conv_dw_11_relu 及之前的层，缓存其真实特征，仅微调 conv_pw_11 卷积与新 9 类分类头，BN 冻结。输入 28→64 双线性放大，[-1,1]，无数据增强。
-- Adam 0.001，batch 30，8 epochs，固定已打乱的样本顺序。交叉熵分类目标；初始随机分类头的验证准确率约 11.6%，最终 43.6%；最终保留测试子集 54.2%。详见真实日志，不能当完整器官模型。
-- 检查点 epoch 0 / 2 / 4 / 8，包含可直接用于浏览器特征响应和 Dream 的截断主干，以及 classifier 子目录中的训练尾部（接受缓存特征）。权重 SHA-256 在 run.json。
-- 训练在本机 Apple M3 Max / TensorFlow.js CPU 上执行。运行时间和设备记在日志。
+本地运行：`npm start` 后打开 http://127.0.0.1:8765 。上传图片仅在浏览器处理。
 
-这是小规模组织图像局部微调实验，未证明人体结构识别能力或临床效用。第 5 层被冻结，两个版本的该层响应一致是正确结果。第 11 层确有权重和响应变化。新分类头未经训练的 epoch 0 指标不能解释为原始 ImageNet 分类器的组织分类能力。
+## 数据与实验
 
-## 交互与数据真实性
+84 张网络照片：24 张 Blattidae 蟑螂、24 张 Coleoptera 甲虫、36 张 Wikimedia Commons 生活空间。逐张保留摄影者、许可、来源、哈希与分组。训练 48、验证 18、测试 18。同 observation、来源／摄影者连拍组、重复或近重复不跨划分。网络空间照片不宣称拍摄于广东；空间标签仅指下载分辨率下未见昆虫。
 
-- 训练：曲线对应实际日志；拖动 0/2/4/8 检查点，同图同层同通道、相同步长和 20 步优化。检查点、原始 JSON 和权重可下载。
-- 响应：可选两个真实层、全部或任一通道，12 个缩略图。热图是前向计算或注明的真实计算回放；每图独立 min–max 归一化，不能用跨图颜色比较绝对值；显示原始数值范围。
-- 微调层候选 channel 121：在人物、咖啡、猫三个独立图像上筛选空间响应方差总和最高的通道，记录真实生成结果；均匀灰图作为失败观察。只是技术候选，未冒充小组已策展的器官预设。
-- 创作：最长边 256 px、按比例、不裁剪；透明图白底。选模型/层/通道、步长 0.002–0.030、10–60 次迭代；梯度按 RMS 归一化，每 2 步保存真实帧。
-- 生成中改参数：取消并从原图重启，最终记录是新参数快照，无混合续算。语言切换不改变任务、上传、参数或当前帧。
-- 作品包：原图、真实过程帧、最终 PNG、JSON（模型/checkpoint/hash/数据集/层/通道/输入ID/请求与完成步数/代码版本/日期）、数据卡、训练记录和策展文本。
-- 使用当前浏览器 IndexedDB 保留作品，沿用 v1 记录；新模型并不会重写旧结果。内置技术案例备注要导出永久保存。
+原始预训练清单：`data/experiment-v1/manifest.json`。含展示使用情况的公开清单：`dist/experiment/dataset-candidates.json`。作者授权与原文件哈希：`dist/author/manifest.json`。用户在 2026-10-12 提供五张照片并授权项目使用，未把照片再许可为 CC。
 
-## 复现
+基础模型为 ImageNet MobileNet V1 0.25，原本就有 cockroach 类 314。仅微调 conv_pw_13，其他权重及原始 1000 类分类头保持相同。训练目标是三组概率的交叉熵：cockroach、其他昆虫（ImageNet300–326 除314）、其余类作为空间粗略代理。它不是专门的害虫／空间检测器。
 
-先 `npm ci`；Python 需 numpy 与 Pillow（本次使用系统提供的文档运行时）。
+输入等比缩放并留白至 96×96，Adam 0.0003，batch 8，12 轮；保存 0/4/8/12 检查点。仅按验证损失从 4/8/12 中选出第 4 轮，随后进行正式保留测试，结果 17/18；一张甲虫被判为空间。不能把小样本准确率解释为普遍检测能力。
 
-1. 将上述官方 pathmnist.npz 放到 training-data/。
-2. `python3 scripts/prepare-data.py`：验证来源文件 MD5，固定划分与索引，导出真实训练样本。
-3. `npm run train`：冻结特征缓存到 training-cache/，训练并保存日志、4 个检查点与分类尾部。
-4. `npm run probes`：构建检查点响应/Dream、多输入候选与灰图失败观察；需 training-data/coffee.png、chelsea.png（scikit-image v0.19.3，CC0）。
-5. `npm run check`：语法、日志、哈希、冻结层一致性、微调层差异、真实帧与双语键。
+作者照片按最长边 256px 处理，不使用训练集的正方形留白方式；它们代表额外的展示条件，不纳入正式指标。空墙照片触发微调分类误响应（cockroach softmax 约 0.7527）。训练集选出的内部通道 22 在保留图上也有误响应、漏响应；这些通道错误与分类错误分别标注。
 
-scripts/qa-v2.cjs 是本环境 Chrome / Playwright 的浏览器验收脚本，需按环境修改 Playwright 路径。训练源数据与特征缓存留在本机，不随网站仓库发布。
+所有展示 Dream 均来自实际计算：cockroach logit 314、步长 0.012、20 次更新、每 2 步存帧。四个检查点使用同一排水口输入。生成的纹理不是可靠生物结构，模型没有恐惧、情绪或主观体验。
 
-## 与建议架构的差异
+## 复现与审计
 
-不需要托管长时 Python 服务：训练离线完成后保存检查点，网页使用 TFJS 真实运行固定模型。因此没有伪装的 /api/training 或 Dream 任务 API；浏览器任务状态直接来自实际迭代。现场训练属于 P1，本版未放入界面。
+- `scripts/import-author.py`：导入作者照片，保留原图哈希并移除展示副本 EXIF。
+- `scripts/collect-inaturalist.py`：开放许可昆虫候选；不要在正式实验后覆写清单。
+- `data/space-candidates/`：空间来源与审计。
+- `scripts/finalize-data.py`：分组划分、预训练 manifest、96px 输入。需原本地候选图片，图片和二进制不纳入 Git。
+- `scripts/train-cockroach.cjs`：真实训练；冻结 BatchNorm 通过等价的固定仿射层实现，导出保持原架构。
+- `scripts/evaluate-cockroach.cjs`：完整导出模型评估与训练集通道选择。
+- `scripts/capture-evidence.cjs` / `finalize-evidence.cjs`：浏览器真实对照帧与展示清单。
+- `npm run check`、`npm run qa`（需预览服务）、`npm run release:check`：静态／数据审计、浏览器交互和七项发布检查。
 
-## 仍需小组提供
-
-最终器官主题与数据选择确认、共同选定的视觉预设、拥有使用权的小组照片、最终作品标题与排列、hero 分析、Miro 展陈证据、PDF。网站目前是可运行的组织显微技术实验与创作工具，不冒充这些小组决策。
-
-## 来源与许可证
-
-- PathMNIST：Jiancheng Yang et al., MedMNIST v2 (2023)，CC BY 4.0；原始组织图 Jakob Nikolas Kather et al., NCT-CRC-HE-100K / CRC-VAL-HE-7K (2019)。已标明子集抽样、缩放、微调等改动。
-- NASA Eileen Collins：公共领域；咖啡 Rachel Michetti、猫 Stefan van der Walt：CC0，via scikit-image。
-- TensorFlow.js / MobileNet：Apache 2.0，许可证在 dist/vendor/TENSORFLOW_LICENSE.txt。
-- https://www.tensorflow.org/tutorials/generative/deepdream
-- https://research.google/blog/inceptionism-going-deeper-into-neural-networks/
-- https://memo.tv/projects/2017/learning-to-see-interactive/
-- https://scikit-image.org/docs/stable/api/skimage.data.html
+旧医学版本位于 `audit/medical-v2-2026-10-09/`，不在网站服务目录内。新网站不使用旧医学权重、数据、示例图或病例叙事。

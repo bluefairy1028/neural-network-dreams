@@ -1,0 +1,200 @@
+{
+  "id": "cockroach-caf7b3b1-8fd4-413a-ae98-cefc5703f3c8",
+  "titleKey": "untitled",
+  "experimentVersion": "cockroach-experiment-v1",
+  "datasetVersion": "cockroach-three-class-v1-2026-10-12",
+  "baselineDataset": "ImageNet",
+  "targetClass": "cockroach",
+  "synset": "n02233338",
+  "targetType": "classification-logit",
+  "targetLayer": "conv_preds",
+  "channel": null,
+  "classIndex": 314,
+  "model": "baseline",
+  "models": [
+    {
+      "id": "imagenet-mobilenet-v1-025",
+      "checkpointId": "imagenet-original",
+      "checkpointSHA256": "eb49857447f6089e7e392f7991f3f4fdce1936efaf83d535f5eb8aaba9538e0b"
+    },
+    {
+      "id": "mobilenet-v1-025-cockroach-conv13",
+      "checkpointId": "cockroach-epoch-4",
+      "checkpointSHA256": "be67373d37364eb6aff70cc1644f8471a14434fbfe51e03b35b760bca730f53b"
+    }
+  ],
+  "classificationResponses": {
+    "baseline": {
+      "before": {
+        "logit": 10.28071403503418,
+        "score": 0.002575203310698271
+      },
+      "after": {
+        "logit": 53.53908157348633,
+        "score": 0.9999994039535522
+      }
+    },
+    "fineTuned": {
+      "before": {
+        "logit": 20.910720825195312,
+        "score": 0.29807350039482117
+      },
+      "after": {
+        "logit": 57.52754211425781,
+        "score": 1
+      }
+    }
+  },
+  "paired": true,
+  "input": "experiment/results/inat-photo-366/input.png",
+  "inputInfo": {
+    "id": "bf4aadc3-33d2-4cf1-aebc-76225907f30f",
+    "filename": "inat-photo-366.png",
+    "originalWidth": 96,
+    "originalHeight": 96,
+    "width": 96,
+    "height": 96,
+    "sourceFileSHA256": "3c6a857242d448d865b2365c637d99e595c5bf2d2bb78f6857abdd73b056df99",
+    "processedSHA256": "d45acb5ca66d01713fc14d7c64a0a8e8f0990452dc8364a7769de4e85dfddfc0",
+    "photographer": "Ken-ichi Ueda",
+    "rights": "cc-by",
+    "role": "held-out-test",
+    "selfShotStatus": "not independently verified",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceURL": "https://www.inaturalist.org/observations/345"
+  },
+  "stepSize": 0.012,
+  "requestedIterations": 20,
+  "completedIterations": 20,
+  "frames": {
+    "baseline": [
+      {
+        "step": 0,
+        "url": "experiment/results/inat-photo-366/baseline-0.png",
+        "sha256": "d45acb5ca66d01713fc14d7c64a0a8e8f0990452dc8364a7769de4e85dfddfc0"
+      },
+      {
+        "step": 2,
+        "url": "experiment/results/inat-photo-366/baseline-2.png",
+        "sha256": "fd4c139781830ff37ddbbb3f18d93c70715a018941c71d3f41480df8fab2a86b"
+      },
+      {
+        "step": 4,
+        "url": "experiment/results/inat-photo-366/baseline-4.png",
+        "sha256": "c96e066a88ef97e4644a77e02d5250a0d966517511236c7e52a1e38fc740a331"
+      },
+      {
+        "step": 6,
+        "url": "experiment/results/inat-photo-366/baseline-6.png",
+        "sha256": "22129681745e1d4b1f26ef0284897233e7b37636d19745413586aadd5344f4ce"
+      },
+      {
+        "step": 8,
+        "url": "experiment/results/inat-photo-366/baseline-8.png",
+        "sha256": "c08d56f29c793256b20fdf6704c1240dbd037d447bae9aedc5ae09b0cefea0de"
+      },
+      {
+        "step": 10,
+        "url": "experiment/results/inat-photo-366/baseline-10.png",
+        "sha256": "b0e5f303502a0081ffc032889b9f123e01af47e9d85ca473efd2e1561e4cd23b"
+      },
+      {
+        "step": 12,
+        "url": "experiment/results/inat-photo-366/baseline-12.png",
+        "sha256": "fb6a07abc8076f09ce3537067eb94a11953d5bfbb6806e3f5b72ba8abde72edd"
+      },
+      {
+        "step": 14,
+        "url": "experiment/results/inat-photo-366/baseline-14.png",
+        "sha256": "84668185a3debf1fd6a80dee600f1d9b016c487ab315d69e858562c321d2a614"
+      },
+      {
+        "step": 16,
+        "url": "experiment/results/inat-photo-366/baseline-16.png",
+        "sha256": "56c3158cfb14158048dcfa2ae292fbbf3fe7816be21f08319e1b85c5192b1ffe"
+      },
+      {
+        "step": 18,
+        "url": "experiment/results/inat-photo-366/baseline-18.png",
+        "sha256": "fcfebaaaec3a90f5023d6eb0f8f0a24de39e6536a9e3c79e8fa402738442e891"
+      },
+      {
+        "step": 20,
+        "url": "experiment/results/inat-photo-366/baseline-20.png",
+        "sha256": "9c96f18a415a85f69b0887bc888724ef9ed2a87edc2bd50c7e89e161dc519804"
+      }
+    ],
+    "fineTuned": [
+      {
+        "step": 0,
+        "url": "experiment/results/inat-photo-366/fineTuned-0.png",
+        "sha256": "d45acb5ca66d01713fc14d7c64a0a8e8f0990452dc8364a7769de4e85dfddfc0"
+      },
+      {
+        "step": 2,
+        "url": "experiment/results/inat-photo-366/fineTuned-2.png",
+        "sha256": "c8773da9324e848cccf0d06cbe95e76edde197005152e21e2308c3fde4ec2f02"
+      },
+      {
+        "step": 4,
+        "url": "experiment/results/inat-photo-366/fineTuned-4.png",
+        "sha256": "463a04f907f6c85baefbfe0539e66381ce4aeaeb0757df3f987058c8c72e5e69"
+      },
+      {
+        "step": 6,
+        "url": "experiment/results/inat-photo-366/fineTuned-6.png",
+        "sha256": "c2714357bac5212e405b7e42829882c91d4cb05b8c2bdfa17b4af2d085413ad5"
+      },
+      {
+        "step": 8,
+        "url": "experiment/results/inat-photo-366/fineTuned-8.png",
+        "sha256": "1cf8ed8791f84b223b89532556c34efc6dcc53a40d0fbce37babdada48563584"
+      },
+      {
+        "step": 10,
+        "url": "experiment/results/inat-photo-366/fineTuned-10.png",
+        "sha256": "3ba0df5fa7adb9212d05eb30da099307a02b84f7b249f75e0c1976c18d4ab4d6"
+      },
+      {
+        "step": 12,
+        "url": "experiment/results/inat-photo-366/fineTuned-12.png",
+        "sha256": "f7a2af3ac86d4d2cc34d41f7d163d7b5cc115a889f23820bc593eead7312182c"
+      },
+      {
+        "step": 14,
+        "url": "experiment/results/inat-photo-366/fineTuned-14.png",
+        "sha256": "d7f6b490710c479f55481a50354941ca6f9e4c21468e6bc14ed975e4e82da192"
+      },
+      {
+        "step": 16,
+        "url": "experiment/results/inat-photo-366/fineTuned-16.png",
+        "sha256": "095a93300aa263a1cdcda2163686049f93153d0458d40615d22a365cb56fa8f8"
+      },
+      {
+        "step": 18,
+        "url": "experiment/results/inat-photo-366/fineTuned-18.png",
+        "sha256": "512bd2d3f25d0d54aa4e5c6392bd49e005edc167afaa62a5450b9f5165d4a71b"
+      },
+      {
+        "step": 20,
+        "url": "experiment/results/inat-photo-366/fineTuned-20.png",
+        "sha256": "725cdaf6b3e563726009aba589f3417df39e2c273ce0be65fd120681b8c9b549"
+      }
+    ]
+  },
+  "createdAt": "2026-10-12T07:55:30.272Z",
+  "elapsedMs": 1899,
+  "codeVersion": "scientist-cockroach-v3",
+  "personalNarrative": {
+    "zh": "本项目把作者在广东生活中形成的蟑螂恐惧转化为一个机器视觉实验。它不代表所有广东居民的经验，也不说明广东客观上属于蟑螂。",
+    "en": "This project translates the author’s fear of cockroaches developed through living in Guangdong into a machine-vision experiment. It does not represent every Guangdong resident or define Guangdong by cockroaches."
+  },
+  "interpretationBoundary": {
+    "zh": "模型没有恐惧、情绪或主观体验。",
+    "en": "The model has no fear, emotions or subjective experience."
+  },
+  "method": "RMS-normalized gradient ascent on input; model weights fixed; save every 2 steps; no interpolation",
+  "backend": "webgl",
+  "status": "completed",
+  "recordURL": "experiment/results/inat-photo-366/record.json"
+}

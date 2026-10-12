@@ -1,14 +1,15 @@
 {
   "name": "neural-network-dreams",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Real browser-local DeepDream and classroom demonstration",
   "main": "index.js",
   "scripts": {
     "start": "node scripts/serve.cjs",
-    "check": "node scripts/check.cjs && node scripts/check-v2.cjs",
-    "examples": "node scripts/generate-examples.cjs",
-    "train": "node scripts/train-tissue.cjs",
-    "probes": "node scripts/build-probes.cjs"
+    "check": "node scripts/check-v3.cjs",
+    "qa": "node scripts/qa-v3.cjs",
+    "release:check": "node scripts/release-gate.cjs",
+    "train": "node scripts/train-cockroach.cjs",
+    "evaluate": "node scripts/evaluate-cockroach.cjs"
   },
   "keywords": [],
   "author": "",

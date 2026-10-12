@@ -1,0 +1,10 @@
+{
+  "changed": [
+    {
+      "layer": "conv_pw_13",
+      "weightIndex": 0,
+      "max": 0.005299843847751617
+    }
+  ],
+  "allOtherWeightsIdentical": true
+}

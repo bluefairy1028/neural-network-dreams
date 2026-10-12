@@ -1,0 +1,180 @@
+{
+  "version": "author-inputs-2026-10-12",
+  "records": [
+    {
+      "id": "author-9103",
+      "title": [
+        "排水口",
+        "Drain"
+      ],
+      "url": "author/9103.jpg",
+      "originalFilename": "IMG_9103.JPG",
+      "originalSHA256": "20b2e14c173978acaea67f1e801ba3395a92b63695bbff412751fd23e4b7a7ad",
+      "sha256": "6807ad3d3fe0d987e2cd2fec41d14626e8cf5d2d2a80a3a660c2dba60ec56b75",
+      "originalDimensions": [
+        3024,
+        4032
+      ],
+      "dimensions": [
+        576,
+        768
+      ],
+      "photographer": [
+        "作品作者（用户提供）",
+        "Project author (user supplied)"
+      ],
+      "rights": [
+        "作者提供并授权用于本课程项目",
+        "Supplied and authorized by the author for this course project"
+      ],
+      "licenseCode": "author-project-permission",
+      "permissionEvidence": "User supplied these five photos on 2026-10-12 for use in the presentation website. No general public reuse license asserted.",
+      "role": "dream-and-demonstration-only",
+      "groupId": "author-session-9101-9105",
+      "split": "display-only",
+      "usedForTraining": false,
+      "label": "no visible cockroach at review resolution",
+      "reviewNote": "Visual review of submitted photos; not proof of insect absence outside the visible scene. Small mark on 9102 is ambiguous, not labeled ground-truth insect-free test."
+    },
+    {
+      "id": "author-9101",
+      "title": [
+        "瓷砖与缝隙",
+        "Tiles and seams"
+      ],
+      "url": "author/9101.jpg",
+      "originalFilename": "IMG_9101.JPG",
+      "originalSHA256": "a730db20f404be3ed0f5f42c70ff136ba0fc3bcadaafc88b6a81497813f44bdd",
+      "sha256": "26b6723d50eca10e19cce6803592f63709e76dd970e936c044b3177f0c09a98d",
+      "originalDimensions": [
+        4032,
+        3024
+      ],
+      "dimensions": [
+        768,
+        576
+      ],
+      "photographer": [
+        "作品作者（用户提供）",
+        "Project author (user supplied)"
+      ],
+      "rights": [
+        "作者提供并授权用于本课程项目",
+        "Supplied and authorized by the author for this course project"
+      ],
+      "licenseCode": "author-project-permission",
+      "permissionEvidence": "User supplied these five photos on 2026-10-12 for use in the presentation website. No general public reuse license asserted.",
+      "role": "dream-and-demonstration-only",
+      "groupId": "author-session-9101-9105",
+      "split": "display-only",
+      "usedForTraining": false,
+      "label": "no visible cockroach at review resolution",
+      "reviewNote": "Visual review of submitted photos; not proof of insect absence outside the visible scene. Small mark on 9102 is ambiguous, not labeled ground-truth insect-free test."
+    },
+    {
+      "id": "author-9102",
+      "title": [
+        "墙角与天花板",
+        "Wall and ceiling corner"
+      ],
+      "url": "author/9102.jpg",
+      "originalFilename": "IMG_9102.JPG",
+      "originalSHA256": "10293fff2d2d7a8186a2218df32fc27d3056a80007c62c2f648aead89ebb3bfa",
+      "sha256": "5b441e1a53e5c8e49263885347d82ad1ce62923b185db59c2b23b6c2f3bdf15c",
+      "originalDimensions": [
+        3024,
+        4032
+      ],
+      "dimensions": [
+        576,
+        768
+      ],
+      "photographer": [
+        "作品作者（用户提供）",
+        "Project author (user supplied)"
+      ],
+      "rights": [
+        "作者提供并授权用于本课程项目",
+        "Supplied and authorized by the author for this course project"
+      ],
+      "licenseCode": "author-project-permission",
+      "permissionEvidence": "User supplied these five photos on 2026-10-12 for use in the presentation website. No general public reuse license asserted.",
+      "role": "dream-and-demonstration-only",
+      "groupId": "author-session-9101-9105",
+      "split": "display-only",
+      "usedForTraining": false,
+      "label": "no visible cockroach at review resolution",
+      "reviewNote": "Visual review of submitted photos; not proof of insect absence outside the visible scene. Small mark on 9102 is ambiguous, not labeled ground-truth insect-free test."
+    },
+    {
+      "id": "author-9105",
+      "title": [
+        "空调、电线与窗帘",
+        "Air conditioner, cable and curtain"
+      ],
+      "url": "author/9105.jpg",
+      "originalFilename": "IMG_9105.JPG",
+      "originalSHA256": "f6d5ac1089f05fe1384fb66248e84d69dada9856fbee516eb3208a7491237796",
+      "sha256": "0e950fd53b5f8525fa843df19b063dbdf967eef71d358564bf0f5f1380c8e017",
+      "originalDimensions": [
+        3024,
+        4032
+      ],
+      "dimensions": [
+        576,
+        768
+      ],
+      "photographer": [
+        "作品作者（用户提供）",
+        "Project author (user supplied)"
+      ],
+      "rights": [
+        "作者提供并授权用于本课程项目",
+        "Supplied and authorized by the author for this course project"
+      ],
+      "licenseCode": "author-project-permission",
+      "permissionEvidence": "User supplied these five photos on 2026-10-12 for use in the presentation website. No general public reuse license asserted.",
+      "role": "dream-and-demonstration-only",
+      "groupId": "author-session-9101-9105",
+      "split": "display-only",
+      "usedForTraining": false,
+      "label": "no visible cockroach at review resolution",
+      "reviewNote": "Visual review of submitted photos; not proof of insect absence outside the visible scene. Small mark on 9102 is ambiguous, not labeled ground-truth insect-free test."
+    },
+    {
+      "id": "author-9104",
+      "title": [
+        "厨房水槽",
+        "Kitchen sink"
+      ],
+      "url": "author/9104.jpg",
+      "originalFilename": "IMG_9104.JPG",
+      "originalSHA256": "7f60ac253f0b37dbd4c6476c83314dd230d908255c3dbd97d4954d76a4af8ecd",
+      "sha256": "6e90a8d0af36c691ca5e3669adf160a36f8328c118b7f93a05953a4ba1d0c881",
+      "originalDimensions": [
+        3024,
+        4032
+      ],
+      "dimensions": [
+        576,
+        768
+      ],
+      "photographer": [
+        "作品作者（用户提供）",
+        "Project author (user supplied)"
+      ],
+      "rights": [
+        "作者提供并授权用于本课程项目",
+        "Supplied and authorized by the author for this course project"
+      ],
+      "licenseCode": "author-project-permission",
+      "permissionEvidence": "User supplied these five photos on 2026-10-12 for use in the presentation website. No general public reuse license asserted.",
+      "role": "dream-and-demonstration-only",
+      "groupId": "author-session-9101-9105",
+      "split": "display-only",
+      "usedForTraining": false,
+      "label": "no visible cockroach at review resolution",
+      "reviewNote": "Visual review of submitted photos; not proof of insect absence outside the visible scene. Small mark on 9102 is ambiguous, not labeled ground-truth insect-free test."
+    }
+  ]
+}
